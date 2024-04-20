@@ -31,11 +31,20 @@ for (let i = 1; i < rows2.length; i++) {
 }
 console.log(Identification)
 
-
-// Convert array of arrays to array of objects//
-const arrayOfObjects = arrayOfArrays.map(([id, name, occupation, age]) => ({ id, name, occupation, age }));
-
-// Output array of objects
-console.log(arrayOfObjects);
-
 console.log("=================Transforming Data==========")
+
+// Convert array of arrays to array of objects
+const arrayOfPeople = [];
+for (let i = 1; i < Identification.length; i++) {
+    const row = Identification[i];
+    const obj = {
+      id: row[0],
+      name: row[1].toLowerCase(),
+      occupation: row[2].toLowerCase(),
+      age: row[3]
+};
+  arrayOfPeople.push(obj);
+}
+console.log(arrayOfPeople)
+
+console.log("=====Part-4-Sorting and manipulating Data====")
