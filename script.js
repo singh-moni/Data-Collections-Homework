@@ -64,3 +64,16 @@ console.log(arrayOfPeople);
 const newobj2 = {id: "7", name: "Bilbo", occupation: "None", age: "111" }
 arrayOfPeople.push(newobj2);
 console.log(arrayOfPeople);
+
+
+// Extract headers
+const csvheaders = Object.keys(arrayOfPeople[0]);
+
+// Convert array of objects to CSV format
+const csv = [
+  csvheaders.join(','),
+  ...arrayOfPeople.map(obj => csvheaders.map(header => obj[header]).join(','))
+].join('\n');
+
+// Output of arrayOfPeople will be in CSV format
+console.log(csv);
